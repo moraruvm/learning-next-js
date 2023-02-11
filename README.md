@@ -1,38 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# learning-next-js
 
-## Getting Started
+Project created to follow along with https://www.udemy.com/course/nextjs-react-the-complete-guide
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Routing
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- next js supports file based routing
+  - _pages/index.tsx_ will be loaded when visiting the app index page
+- nested routing is done via folders
+  - _pages/about.tsx_ on _/about_ route
+  - _pages/projects/index.tsx_ on _/projects_ route
+- dynamic routes require page names using brackets [].tsx
+  - _pages/projects/[projectId].tsx_ on _/projects/project-id_
+- folder names can also be dynamic
+  - _pages/clients/[clientId]/index.tsx_ on _/clients/coca-cola_
+- dynamic route arguments can be obtained via the `useRouter()` hook
+  > const clientId = router.query["clientId"];
+- "catch all" routes
+  - through three dots in the file name: [...slug].tsx
+  - then you can get all the segments in the path through `router.query`, which returns an array
+- for custom http status code handling
+  - like 404, create a _404.tsx_ file in the root pages folder
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Links
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- when linking to new pages, using `<a>` tags will trigger a new request to the server (which is a disadvantage)
+- instead, use the `<Link href='{}'></Link>` component
+- to navigate programatically, you can use the `router.push()` method (or replace)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
