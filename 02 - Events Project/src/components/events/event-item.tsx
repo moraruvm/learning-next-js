@@ -11,20 +11,27 @@ const EventItem = (props: IProps) => {
   const formattedAddress = location.replace(", ", "\n");
 
   return (
-    <li>
-      <img src={`/${image}`} alt={title}></img>
-      <div>
+    <li className="flex shadow-md">
+      <img
+        className="h-48 w-52 object-cover"
+        src={`/${image}`}
+        alt={title}
+      ></img>
+
+      <div className="flex flex-col p-4 bg-white rounded-lg">
         <div>
-          <h2>{title}</h2>
-          <div>
+          <h2 className="text-2xl font-bold">{title}</h2>
+          <div className="mt-2 font-bold">
             <time>{formattedDate}</time>
           </div>
-          <div>
+          <div className="mt-2">
             <address>{formattedAddress}</address>
           </div>
         </div>
-        <div>
-          <Link href={`/events/${id}`}>Expore Event</Link>
+        <div className="mt-5 flex justify-end">
+          <Link className="underline text-blue-800" href={`/events/${id}`}>
+            Expore Event
+          </Link>
         </div>
       </div>
     </li>

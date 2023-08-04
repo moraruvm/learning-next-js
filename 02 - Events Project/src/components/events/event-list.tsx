@@ -6,7 +6,7 @@ const EventList = (props: IProps) => {
   const { items } = props;
 
   return (
-    <ul>
+    <ul className="mt-24 flex flex-col items-center gap-4">
       {items.map((e) => (
         <EventItem
           key={e.id}
