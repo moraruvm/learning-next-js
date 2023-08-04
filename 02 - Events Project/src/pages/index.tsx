@@ -1,5 +1,11 @@
+import { getFeaturedEvents } from "dummyData";
+
 const Index = () => {
-  return <>Hello</>;
+  return (
+    <div>
+      <h1>Hello</h1>
+    </div>
+  );
 };
 
 export default Index;
